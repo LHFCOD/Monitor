@@ -1,0 +1,27 @@
+﻿<Window x:Class="Monitor.StartPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Monitor"
+        mc:Ignorable="d"
+        Title="汽水系统腐蚀产物迁徙数据科学管理系统
+" Height="381" Width="602.351" WindowState="Maximized" Closed="OnClosed">
+    <Grid>
+        <TabControl Style="{StaticResource TabControlStyle1}" >
+            <TabItem  Header="主页面">
+                <local:MainWindow x:Name="mainWnd" Foreground="Black"></local:MainWindow>
+            </TabItem>
+            <TabItem  Header="监测数据">
+                <local:OnLineStatic x:Name="onLineStatic" Foreground="Black"></local:OnLineStatic>
+            </TabItem>
+            <TabItem  Header="历史数据" >
+                <local:HistoryStatic Foreground="Black"></local:HistoryStatic>
+            </TabItem>
+            <TabItem  Header="数据分析" >
+            </TabItem>
+            <!--<TabItem  Header="评价指标离线统计"></TabItem>-->
+        </TabControl>
+
+    </Grid>
+</Window>

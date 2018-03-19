@@ -1,0 +1,19 @@
+﻿<Application x:Class="Monitor.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Monitor"
+             StartupUri="Window/StartPage.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Style/MainImage.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="Style/SysString.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="Style/DataGridStyle.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="Style/ButtonStyle.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="Style/TextBoxStyle.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="Style/Converter.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="Style/TabControlStyle.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

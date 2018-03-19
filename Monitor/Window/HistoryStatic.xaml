@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="Monitor.HistoryStatic"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Monitor"
+             xmlns:visifire="clr-namespace:Visifire.Charts;assembly=WPFVisifire.Charts"
+             xmlns:Toolkit="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:d3="http://research.microsoft.com/DynamicDataDisplay/1.0"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" Loaded="OnLoaded" GotFocus="OnGotFocus" SizeChanged="OnSizeChanged">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="152*"/>
+            <RowDefinition Height="111*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Left">
+            <ComboBox Name="preSelectIndex" HorizontalAlignment="Left" Width="103" Height="32" VerticalAlignment="Top" VerticalContentAlignment="Center" SelectionChanged="OnSelectionChanged" Margin="0,0,0,-11" />
+            <Label Content="温度" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="32" VerticalAlignment="Top" Margin="0,0,0,-11" FontSize="15" FontWeight="Bold"></Label>
+            <TextBox Name="TControl" Text="333" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="32" VerticalAlignment="Top" Margin="0,0,0,-11" Width="56" FontSize="15" ></TextBox>
+            <Label Content="K" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="32" VerticalAlignment="Top" Margin="0,0,0,-11" FontSize="15" FontWeight="Bold"></Label>
+            <Toolkit:DateTimePicker Format="Custom" FormatString="yyyy/MM/dd HH:mm:ss" Name="startTime"  HorizontalAlignment="Left" Width="177" Height="32" VerticalAlignment="Top" Margin="0,0,0,-11"></Toolkit:DateTimePicker>
+            <Label  Content="至" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  Height="32" VerticalAlignment="Top" HorizontalAlignment="Left" Width="42" FontSize="15" FontWeight="Bold"></Label>
+            <Toolkit:DateTimePicker Name="endTime" Format="Custom" FormatString="yyyy/MM/dd HH:mm:ss"  HorizontalAlignment="Left" Width="153" Height="32" VerticalAlignment="Top"></Toolkit:DateTimePicker>
+            <Button  HorizontalAlignment="Left" Width="53" Height="32" VerticalAlignment="Top" Background="SkyBlue" Click="OnSerch" FontSize="15" FontWeight="Bold">查询</Button>
+            <Button  Style="{StaticResource ButtonStyle2}" HorizontalAlignment="Left" Width="32" Height="32" VerticalAlignment="Top" Cursor="Hand" Click="OnSave">
+            </Button>
+        </StackPanel>
+        <Border Grid.Row="1" BorderBrush="#FFD2E60C" BorderThickness="0,0,0,2">
+            <d3:ChartPlotter Name="plotter" >
+                <d3:ChartPlotter.VerticalAxis>
+                    <d3:VerticalAxis x:Name="yAxis"/>
+                </d3:ChartPlotter.VerticalAxis>
+
+                <d3:ChartPlotter.HorizontalAxis>
+                    <d3:DateTimeAxis x:Name="xAxis" />
+                </d3:ChartPlotter.HorizontalAxis>
+
+                <d3:Header Content="指标历史统计曲线图"/>
+                <d3:VerticalAxisTitle Content="指标值"/>
+                <d3:HorizontalAxisTitle Content="时间"></d3:HorizontalAxisTitle>
+            </d3:ChartPlotter>
+        </Border >
+        <Border Grid.Row="2" Name="LowerWnd" BorderBrush="#FFD2E60C" BorderThickness="0,0,0,2">
+            <StackPanel  Orientation="Vertical">
+                <Label Content="评价指标历史饼状图" FontSize="18" Height="33" Name="PieLable"></Label>
+                <visifire:Chart x:Name="chart" ></visifire:Chart>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>
